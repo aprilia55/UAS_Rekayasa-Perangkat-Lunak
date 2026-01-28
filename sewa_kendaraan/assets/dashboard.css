@@ -1,0 +1,254 @@
+/* ===================== RESET ===================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    background: #f1f5f9;
+    color: #1e293b;
+}
+
+/* ===================== SIDEBAR ===================== */
+.sidebar {
+    width: 250px;
+    background: linear-gradient(180deg, #1e3a8a, #1e40af);
+    color: white;
+    padding: 30px 20px;
+    box-shadow: 4px 0 12px rgba(0,0,0,0.08);
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.sidebar a {
+    display: block;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    background: rgba(255,255,255,0.15);
+    padding-left: 20px;
+}
+
+/* ===================== CONTENT ===================== */
+.content {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===================== HEADER CARD ===================== */
+.header-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* kiri teks | kanan gambar */
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    height: 180px;
+    background: white;
+    position: relative;
+}
+
+.header-left {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.header-left h1 {
+    font-size: 26px;
+    color: #1e3a8a;
+    margin-bottom: 6px;
+}
+
+.header-left p {
+    font-size: 14px;
+    color: #64748b;
+}
+
+.header-date {
+    margin-top: 10px;
+}
+
+.header-date .label-date {
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+.header-date .value-date {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.header-right {
+    background: url('/sewa_kendaraan/assets/img/dashboard.png') right center / cover no-repeat;
+}
+
+/* ===================== STATS GRID ===================== */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+/* ======== STAT CARD ======== */
+.stat-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 25px;
+    border-radius: 14px;
+    color: white;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+
+    /* ===== Animasi masuk ===== */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+}
+
+.stat-card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.stat-card .icon {
+    font-size: 28px;
+}
+
+.stat-card h2 {
+    font-size: 26px;
+    margin-bottom: 4px;
+}
+
+.stat-card span {
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+.blue { background: linear-gradient(135deg, #2563eb, #1e40af); }
+.green { background: linear-gradient(135deg, #16a34a, #15803d); }
+.orange { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.red { background: linear-gradient(135deg, #ef4444, #b91c1c); }
+.cyan { background: linear-gradient(135deg, #06b6d4, #0e7490); }
+
+/* ===================== WELCOME CARD ===================== */
+.welcome-card {
+    background: white;
+    padding: 28px 30px;
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+.welcome-card h2 {
+    margin-bottom: 10px;
+    color: #1e3a8a;
+}
+
+.welcome-card p {
+    color: #64748b;
+    font-size: 14px;
+}
+
+/* ===================== ADMIN BOX ===================== */
+.admin-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255,255,255,0.1);
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.admin-avatar {
+    font-size: 28px;
+    background: rgba(255,255,255,0.2);
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.admin-info {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.admin-role {
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+.admin-name {
+    font-size: 14px;
+    font-weight: 600;
+}
+/* Hover animasi */
+.stat-card {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer; /* terlihat interaktif */
+}
+
+.stat-card:hover {
+    transform: translateY(-10px) scale(1.05); /* naik sedikit & membesar */
+    box-shadow: 0 15px 25px rgba(0,0,0,0.15);
+}
+
+/* Animasi saat muncul pertama kali (fade-up) */
+.stat-card {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.stat-card.show {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.6s ease-out;
+}
+
+/* Optional: animasi klik */
+.stat-card:active {
+    transform: scale(0.98);
+}
+.stat-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+/* Hover normal */
+.stat-card:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+}
+
+/* Animasi sentuhan/klik */
+.stat-card.touch-anim {
+    animation: touchAnim 0.3s forwards;
+}
+
+@keyframes touchAnim {
+    0% { transform: scale(1) translateY(0); }
+    30% { transform: scale(1.05) translateY(-8px); }
+    60% { transform: scale(0.98) translateY(3px); }
+    100% { transform: scale(1) translateY(0); }
+}
